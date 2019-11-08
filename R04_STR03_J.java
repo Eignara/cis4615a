@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package homework2incorrect;
+
+package homework2cis4615;
 
 import java.math.BigInteger;
 
@@ -17,7 +18,7 @@ public class R04_STR03_J {
     }
     
     /* Rule 04. Characters and Strings (STR)
-     * NONCOMPLIANT CODE
+     * Corrected code per: https://wiki.sei.cmu.edu/confluence/display/java/STR03-J.+Do+not+encode+noncharacter+data+as+a+string
      * Rule 04-STR03
     */
     
@@ -25,13 +26,11 @@ public class R04_STR03_J {
     public static void CharactersAndStrings(){
         System.out.println("The x's should be the same.");
         BigInteger x = new BigInteger("530500452766");
-        
-        System.out.println("x is " + x);
-        
-        byte[] byteArray = x.toByteArray();
-        String s = new String(byteArray);
-        byteArray = s.getBytes();
-        x = new BigInteger(byteArray);
+        System.out.println("x is: " + x);
+        String s = x.toString();  // Valid character data
+        byte[] byteArray = s.getBytes();
+        String ns = new String(byteArray); 
+        x = new BigInteger(ns);
         
         System.out.println("x is " + x);
     }

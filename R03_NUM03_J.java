@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package homework2incorrect;
+
+package homework2cis4615;
 
 import java.io.DataInputStream;
 import java.io.File;
@@ -25,7 +26,7 @@ public class R03_NUM03_J {
         
         try {
             System.out.println("Grabbing self file.");
-            InputStream initialStream = new FileInputStream(new File("src//homework2incorrect//R03_NUM03_J.java"));
+            InputStream initialStream = new FileInputStream(new File("src//homework2cis4615//R03_NUM03_J.java"));
             DataInputStream dis = new DataInputStream(initialStream);
             System.out.println("Number is: " + getInteger(dis));
         } catch (FileNotFoundException ex) {
@@ -36,12 +37,13 @@ public class R03_NUM03_J {
     }
     
     /* Rule 03. Numeric Types and Operations (NUM)
-     * NONCOMPLIANT CODE
+     * Corrected code per: https://wiki.sei.cmu.edu/confluence/display/java/NUM03-J.+Use+integer+types+that+can+fully+represent+the+possible+range+of++unsigned+data
      * Rule 03-NUM03
     */
     
     //Use integer types that can fully represent the possible range of unsigned data
-    public static int getInteger(DataInputStream is) throws IOException {
-        return is.readInt(); // Mask with 32 one-bits
+
+    public static long getInteger(DataInputStream is) throws IOException {
+        return is.readInt() & 0xFFFFFFFFL; // Mask with 32 one-bits
       }
 }

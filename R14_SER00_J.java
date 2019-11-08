@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package homework2incorrect;
+package homework2cis4615;
 
 import java.io.Serializable;
 
@@ -20,12 +20,13 @@ public class R14_SER00_J {
 }
 
 /* Rule 14. Serialization (SER)
-* NONCOMPLIANT CODE
+* Corrected code per: https://wiki.sei.cmu.edu/confluence/display/java/SER00-J.+Enable+serialization+compatibility+during+class+evolution
 * Rule 14-SER00
 */
 
 //Enable serialization compatibility during class evolution
 class GameWeapon implements Serializable {
+    private static final long serialVersionUID = 24L;
     
     int numOfWeapons = 10;
 

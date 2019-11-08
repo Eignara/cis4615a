@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package homework2incorrect;
+package homework2cis4615;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class R49_MSC01_J {
     public static final int DURATION=10000; // In milliseconds
     public static void main(String[] args) {
-        System.out.println("This has an empty loop and will run forever without letting you know how much it has run!");
+        System.out.println("This program runs on a loop with a 10000 millisecond wait.");
         try {
             nop();
         } catch (InterruptedException ex) {
@@ -24,13 +24,18 @@ public class R49_MSC01_J {
     }
     
     /* Rule 49. Miscellaneous (MSC)
-     * NONCOMPLIANT CODE
+     * Corrected code per: https://wiki.sei.cmu.edu/confluence/display/java/MSC01-J.+Do+not+use+an+empty+infinite+loop
      * Rule 49-MSC01
     */
     
     //Do not use an empty infinite loop
     public static void nop() throws InterruptedException {
         while (true) {
+          // Useful operations
+          
+          System.out.println("Waiting... ");
+          Thread.sleep(DURATION);
+          System.out.println("10000 milliseconds have passed.");
         }
     }
 }

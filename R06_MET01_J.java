@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package homework2incorrect;
+
+package homework2cis4615;
 
 import java.util.Scanner;
 
@@ -26,17 +27,20 @@ public class R06_MET01_J {
     }
     
     /* Rule 05. Object Orientation (OBJ)
-     * NONCOMPLIANT CODE
+     * Corrected code per: https://wiki.sei.cmu.edu/confluence/display/java/OBJ05-J.+Do+not+return+references+to+private+mutable+class+members
      * Rule 05-OBJ05
     */
     
     //Do not return references to private mutable class members
     public static int getAbsAdd(int x, int y) {
-        assert x != Integer.MIN_VALUE;
-        assert y != Integer.MIN_VALUE;
+        if (x == Integer.MIN_VALUE || y == Integer.MIN_VALUE) {
+          throw new IllegalArgumentException();
+        }
         int absX = Math.abs(x);
         int absY = Math.abs(y);
-        assert (absX <= Integer.MAX_VALUE - absY);
+        if (absX > Integer.MAX_VALUE - absY) {
+          throw new IllegalArgumentException();
+        }
         return absX + absY;
     }
 }

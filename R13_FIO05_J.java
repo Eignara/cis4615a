@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package homework2incorrect;
+package homework2cis4615;
 
 import java.nio.CharBuffer;
 import java.util.Scanner;
@@ -20,7 +20,7 @@ public class R13_FIO05_J {
 }
 
 /* Rule 13. Input Output (FIO)
-* NONCOMPLIANT CODE
+* Corrected code per: https://wiki.sei.cmu.edu/confluence/display/java/FIO05-J.+Do+not+expose+buffers+created+using+the+wrap%28%29+or+duplicate%28%29+methods+to+untrusted+code
 * Rule 13-FIO05
 */
 
@@ -41,6 +41,6 @@ final class Wrap {
   }
  
   public CharBuffer getBufferCopy() {
-    return CharBuffer.wrap(dataArray);
+    return CharBuffer.wrap(dataArray).asReadOnlyBuffer();
   }
 }

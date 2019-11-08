@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package homework2incorrect;
+
+package homework2cis4615;
+
+import homework2cis4615.R01_DCL00_J;
 
 
 /**
@@ -11,12 +14,12 @@ package homework2incorrect;
  * @author Hadiya Najm NID=ha889474 PID=h3555944
  */
 public class R01_DCL00_J {
-    private final int balance;
-    private static final R01_DCL00_J c = new R01_DCL00_J();
+    private int balance = 0;
     private static final int deposit = (int) (Math.random() * 100); // Random deposit
+    private static final R01_DCL00_J c = new R01_DCL00_J();  // Inserted after initialization of required fields
     
     /* Rule 01. Declarations and Initialization (DCL)
-     * NONCOMPLIANT CODE
+     * Corrected code per: https://wiki.sei.cmu.edu/confluence/display/java/DCL00-J.+Prevent+class+initialization+cycles
      * Rule 01-DCL00
     */
     
