@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package homework2cis4615;
 
 import java.io.BufferedWriter;
@@ -52,6 +53,4 @@ public class R02_XP00_J {
        else{
            Logger.getLogger(R02_XP00_J.class.getName()).info("File sucessfully deleted.");     }
       }
-    
-    
 }
